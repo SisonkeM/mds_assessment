@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\holidaysController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [holidaysController::class, 'index']);
+Route::post('/downloadDocument', [holidaysController::class, 'download_document']);
+Route::get('/getPublicHolidays', [holidaysController::class, 'get_public_holidays']);
+
